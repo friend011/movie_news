@@ -1,0 +1,25 @@
+{% extends 'posts/base.html' %}
+{% load embed_video_tags %}
+{% block content %}
+
+
+
+	<div class="article">
+	    <div class="container">
+	        <div class="row">
+	        	<div class="col-lg-3 ">
+	        		<p> <img src="{{MEDIA_URL}}{{  videotrailer.trailer_image.url}}" width="150" height="195"></p>
+	        	</div>
+	        	<div class="col-lg-9 ">
+	        		<h2>{{ videotrailer.trailer_title }}</h2>
+	        		<iframe width="560" height="315" src="{{ videotrailer.trailer_video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+
+
+{% endblock%}
+
+
+	

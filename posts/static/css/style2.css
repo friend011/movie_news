@@ -1,0 +1,9 @@
+.article-item{
+    height: 325px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    position: relative;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}

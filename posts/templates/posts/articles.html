@@ -1,0 +1,63 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+
+	<div id="headerwrap">
+	    <div class="container">
+	    	<div class="row centered">
+		        <div class="col-lg-8 col-lg-offset-2">
+		        	<h1>Фільми для вивчення англійської мови</h1>
+		        </div>
+	    	</div>
+	    </div>
+  	</div>
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				{% for articleenglish in articleenglishs %}
+					<div class="col-lg-3">
+						<div class="article-item">
+							<p> <img src="{{MEDIA_URL}}{{ articleenglish.article_image.url}}" width="150" height="195"></p>
+							<h4><a href="/articleenglishs/get/{{ articleenglish.id }}/">{{ articleenglish.article_title }}</a></h4>
+						</div>
+						
+					</div>
+
+				{% endfor %}
+				
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				{% for article in articles %}
+					<div class="col-lg-3">
+						<div class="article-item">
+							<p> <img src="{{MEDIA_URL}}{{ article.article_image.url}}" width="150" height="195"></p>
+							<h4><a href="/articles/get/{{ article.id }}/">{{ article.article_title }}</a></h4>
+						</div>
+						
+					</div>
+
+				{% endfor %}
+				
+			</div>
+		</div>
+	</div>
+
+
+
+
+ 
+
+{% for article in articles %}
+    <h6>Дата публикации:{{ article.article_date }}</h6>
+    <h4><a href="/articles/get/{{ article.id }}/">{{ article.article_title }}</a></h4>
+
+
+
+{% endfor %}
+{% endblock%}

@@ -1,0 +1,145 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+
+  <div id="headerwrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h1>НОВИНИ КІНО</h1>
+          <h2>Трейлери 2018</h2>
+          <h2>Фільми для вивчення англійської мови</h2>
+          <h2>Кинокритика</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container w">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-4">
+        <i class="fa fa-film"></i>
+        <h4>Трейлери 2018</h4>
+        <p>Трейлери до фільмів які мають вийти у найближчі місяці</p>
+      </div>
+      <div class="col-lg-4">
+        <i class="fa fa-file-video "></i>
+        <h4>Фільми для вивчення англійської мови</h4>
+        <p>Підбірка фільмів на англійській мові з анлійськими субтитрами</p>
+      </div>
+      <div class="col-lg-4">
+        <i class="fa fa-video"></i> 
+        <h4>Кинокритика</h4>
+        <p>Огляд та оцінка фільмів які тільки виходять у світовий прокат</p>
+      </div>
+    </div>
+    <br><br>
+  </div>
+  <div id="dg">
+    <div class="container">
+      <div class="row centered">
+        <a href="videotrailers"><h2>Трейлери 2018</h2></a>
+        <br>
+        <div class="col-lg-12">
+          <div class="section">
+    
+            {% for videotrailer in videotrailers %}
+              
+              {%if videotrailer.id < 4 %}  
+                <div class="col-lg-4">
+                  <div class="article-item">
+                    <!-- <p> <img src="{{MEDIA_URL}}{{  video_trailer.trailer_image.url}}" width="150" height="195"></p> -->
+                    <h4><a href="/videotrailers/get/{{ videotrailer.id }}/">{{ videotrailer.trailer_title }}</a></h4>
+                     <iframe width="280" height="155" src="{{ videotrailer.trailer_video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  </div>
+                  
+                </div>
+              {% endif %}
+
+           {% endfor %}
+            
+          </div>
+   
+        
+      </div>
+    </div>
+  </div>
+  <div id="dg">
+    <div class="container">
+      <div class="row centered">
+        <a href="/videokritiks"><h2>Кінокритика </h2></a>
+        <br>
+        <div class="col-lg-12">
+          <div class="section">
+    
+            {% for videokritik in videokritiks %}
+              {%if videokritik.id < 4 %} 
+                <div class="col-lg-4">
+                  <div class="article-item">
+                    <!-- <p> <img src="{{MEDIA_URL}}{{  videokritik.kritika_image.url}}" width="150" height="195"></p> -->
+                    <h4><a href="/videokritiks/get/{{ videokritik.id }}/">{{ videokritik.kritika_title }}</a></h4>
+                     <iframe width="280" height="155" src="{{ videokritik.kritika_video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  </div>
+                  
+                </div>
+               {% endif %}
+            {% endfor %}
+            
+          </div>
+   
+        
+      </div>
+    </div>
+  </div>
+    <div id="dg">
+    <div class="container">
+      <div class="row centered">
+        <a href="/articleenglishs"><h2>Фільми для вивчення англійської мови</h2></a>
+        <br>
+        <div class="col-lg-12">
+          <div class="section">
+    
+            {% for articleenglish in articleenglishs %}
+              {%if  articleenglish.id < 5 %} 
+                <div class="col-lg-3">
+                  <div class="article-item">
+                    <p> <img src="{{MEDIA_URL}}{{ articleenglish.article_image.url}}" width="150" height="195"></p>
+                    <h4><a href="/articleenglishs/get/{{ articleenglish.id }}/">{{ articleenglish.article_title }}</a></h4>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+   
+        
+      </div>
+    </div>
+  </div>
+  <p>&copy; Усі права захищені 2018</p>
+  
+
+
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body> -->
+</html>
+
+
+
+
+
+
+
+
+
+<h4>{{ article.article_date }}</h4>
+<h2>{{ article.article_title }}</h2>
+<div>
+{% if article.article_image %}
+    <p> <img src="{{MEDIA_URL}}{{ article.article_image.url}}"></p>
+    {% endif %}
+</div>
+<p>{{ article.article_text }}</p>
+<hr>
+{% endblock%}

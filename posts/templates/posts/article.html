@@ -1,0 +1,22 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+	<div class="article">
+	    <div class="container">
+	        <div class="row">
+	        	<div class="col-lg-3 ">
+	        		<p> <img src="{{MEDIA_URL}}{{ articleenglish.article_image.url}}"></p>
+	        	</div>
+	        	<div class="col-lg-9 ">
+	        		<h2>{{ articleenglish.article_title }}</h2>
+	        		<p>{{ articleenglish.article_text }}</p>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+
+
+
+
+{% endblock%}

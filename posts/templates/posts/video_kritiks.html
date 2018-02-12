@@ -1,0 +1,39 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+
+	
+	<div id="headerwrap">
+	    <div class="container">
+	      <div class="row centered">
+	        <div class="col-lg-8 col-lg-offset-2">
+	          <h1>Кінокритика</h1>
+	          
+	        </div>
+	      </div>
+	    </div>
+  	</div>
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				{% for videokritik in videokritiks %}
+					<div class="col-lg-4">
+						<div class="article-item">
+							<!-- <p> <img src="{{MEDIA_URL}}{{  videokritik.kritika_image.url}}" width="150" height="195"></p> -->
+							<h4><a href="/videokritiks/get/{{ videokritik.id }}/">{{ videokritik.kritika_title }}</a></h4>
+							 <iframe width="280" height="155" src="{{ videokritik.kritika_video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						</div>
+						
+					</div>
+
+				{% endfor %}
+				
+			</div>
+		</div>
+	</div>
+	
+
+
+
+{% endblock%}
